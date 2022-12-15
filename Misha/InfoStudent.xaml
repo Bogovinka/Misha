@@ -1,0 +1,44 @@
+﻿<Window x:Class="Misha.InfoStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Misha"
+        mc:Ignorable="d"
+        Title="Информация о студенте" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="1000" Height="450" Width="100">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+        <StackPanel>
+            <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">Данные о ученике</Label>
+            <ListView  FontSize="18" x:Name="dg">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                        <Label  Content="Фамилия: " FontWeight="Bold"/><Label Content="{Binding Surname}"/><LineBreak/>
+                        <Label Content="Имя: " FontWeight="Bold"/><Label Content="{Binding Name}"/><LineBreak/>
+                        <Label Content="Отчество: " FontWeight="Bold"/><Label Content="{Binding MiddleName}"/><LineBreak/>
+                        <Label Content="Телефон: " FontWeight="Bold"/><Label Content="{Binding Phone}"/><LineBreak/>
+                        <Label Content="Класс: " FontWeight="Bold"/><Label Content="{Binding Classes.Name}"/><LineBreak/>
+                        <Label Content="Классный руководитель: " FontWeight="Bold"/><Label Content="{Binding Classes.Teacher.FullName}"/><LineBreak/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Margin="10,0,0,0">
+            <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">Достижения</Label>
+            <ListView FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="listDg">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Label Content="{Binding Tasks.Name}" FontWeight="Bold"></Label>
+                            <Label>: </Label>
+                            <Label Content="{Binding Bal}"></Label>
+                            <Label>баллов</Label>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </StackPanel>
+</Window>
